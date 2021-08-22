@@ -1,6 +1,6 @@
 package coordinatetest;
 
-import coordinate.coordinateException;
+import coordinate.exception.coordinateException;
 import coordinate.domain.Coordinate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

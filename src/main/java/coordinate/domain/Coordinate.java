@@ -1,6 +1,6 @@
 package coordinate.domain;
 
-import coordinate.coordinateException;
+import coordinate.exception.coordinateException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,5 +30,9 @@ public class Coordinate {
         coordinateArray.add(y);
 
         return coordinateArray;
+    }
+
+    public String getCoordinate() {
+        return coordinate;
     }
 }

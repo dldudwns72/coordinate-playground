@@ -1,4 +1,4 @@
-package coordinate;
+package coordinate.exception;
 
 public class coordinateException extends IllegalArgumentException{
 
