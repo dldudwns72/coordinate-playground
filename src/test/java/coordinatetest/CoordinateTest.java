@@ -19,8 +19,18 @@ public class CoordinateTest {
             String coordinateInput = "(10*10)";
             Coordinate coordinate = new Coordinate(coordinateInput);
         }).isInstanceOf(coordinateException.class);
-
     }
+
+    @Test
+    @DisplayName("좌표 생성 에러")
+    public void generateCoordinateRangeError() {
+        assertThatThrownBy(() -> {
+            String coordinateInput = "(10,30)";
+            Coordinate coordinate = new Coordinate(coordinateInput);
+
+        }).isInstanceOf(coordinateException.class);
+    }
+
 
     @Test
     @DisplayName("좌표 생성")
