@@ -7,47 +7,38 @@ public class ResultView {
     public static void drawingCoordinateGraph() {
         System.out.println("실행결과");
 
-        for (int i = MAX_COORDINATE; i > 0; i--) {
+        for (int i = MAX_COORDINATE; i > MIN_COORDINATE; i--) {
             printYCoordinateMultiplesOfTwo(i);
         }
 
         System.out.printf("%4s","+");
 
-        for (int i = 0; i < MAX_COORDINATE; i++) {
-            System.out.print("ㅡ");
-        }
-
-        System.out.println("");
+        System.out.printf("%4s%n","ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
         System.out.print("   ");
-
 
         for (int i = 1; i <= MAX_COORDINATE; i++) {
             printXCoordinateMultiplesOfTwo(i);
         }
-
 
     }
 
     private static void printYCoordinateMultiplesOfTwo(int coordinate) {
 
         if (coordinate % 2 == 0) {
-            System.out.printf("%3d",coordinate);
-            System.out.println("ㅣ");
+            System.out.printf("%3dㅣ%n",coordinate);
         }
 
         if (coordinate % 2 != 0) {
-            System.out.printf("%5s","ㅣ\n" );
+            System.out.printf("%4s%n","ㅣ" );
         }
 
     }
 
     private static void printXCoordinateMultiplesOfTwo(int coordinate) {
-        if (coordinate % 2 == 0) {
-            System.out.printf("%d",coordinate);
-        }
+        System.out.print(" ");
 
-        if (coordinate % 2 != 0) {
-            System.out.print(" ");
+        if (coordinate % 2 == 0) {
+            System.out.printf("%2d",coordinate);
         }
     }
 }
