@@ -8,6 +8,7 @@ import java.util.List;
 public class Coordinate {
 
     private String coordinate;
+    List<Integer> coordinateArray;
 
     private CoordinateX x;
     private CoordinateY y;
@@ -33,7 +34,7 @@ public class Coordinate {
     }
 
     public List<Integer> generate() {
-        List<Integer> coordinateArray = new ArrayList<>();
+        coordinateArray = new ArrayList<>();
 
         coordinateArray.add(x.getX());
         coordinateArray.add(y.getY());
@@ -43,5 +44,9 @@ public class Coordinate {
 
     public String getCoordinate() {
         return coordinate;
+    }
+
+    public List<Integer> getCoordinateArray() {
+        return coordinateArray;
     }
 }

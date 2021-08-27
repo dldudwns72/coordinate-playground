@@ -2,6 +2,7 @@ package coordinatetest;
 
 import coordinate.domain.Coordinate;
 import coordinate.domain.Coordinates;
+import coordinate.domain.DistanceCalculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,12 +10,18 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CoordinatesTest {
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
+
+public class DistanceCalculatorTest {
 
     private List<Coordinate> coordinateList;
 
     private Coordinate firstCoordinate;
     private Coordinate secondCoordinate;
+
+    private Coordinates coordinates;
+
 
     @BeforeEach
     public void setUp() {
@@ -26,15 +33,20 @@ public class CoordinatesTest {
         coordinateList.add(firstCoordinate);
         coordinateList.add(secondCoordinate);
 
+        coordinates = new Coordinates(coordinateList);
     }
 
     @Test
-    @DisplayName("Coordinates 생성")
-    public void generateCoordinates() {
-        Coordinates coordinates = new Coordinates(coordinateList);
+    @DisplayName("거리 측정")
+    public void distance(){
 
-        coordinates.getCoordinates().get(0).getCoordinate().equals("(10,10)");
-        coordinates.getCoordinates().get(1).getCoordinate().equals("(14,15)");
+        System.out.println(firstCoordinate);
+        System.out.println(secondCoordinate);
+
+        DistanceCalculator distanceCalculator = new DistanceCalculator(coordinates);
+        double lineDistance = distanceCalculator.LineCalculator();
+        assertThat(lineDistance).isEqualTo(6.40,offset(0.2));
+
 
     }
 }

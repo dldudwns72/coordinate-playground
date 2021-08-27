@@ -15,7 +15,7 @@ public class CoordinateY {
     }
 
     private void valid(){
-        if (y < MIN_COORDINATE || y < MAX_COORDINATE) {
+        if (y < MIN_COORDINATE || y > MAX_COORDINATE) {
             throw new coordinateException("Y 좌표의 범위는 0초과 24미만이여야 한다.");
         }
     }

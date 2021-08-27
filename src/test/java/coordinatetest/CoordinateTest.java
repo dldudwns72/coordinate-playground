@@ -27,7 +27,6 @@ public class CoordinateTest {
         assertThatThrownBy(() -> {
             String coordinateInput = "(10,30)";
             Coordinate coordinate = new Coordinate(coordinateInput);
-
         }).isInstanceOf(coordinateException.class);
     }
 
