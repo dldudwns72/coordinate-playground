@@ -41,4 +41,8 @@ public class ResultView {
             System.out.printf("%2d",coordinate);
         }
     }
+
+    public static void printDistance(double distance){
+        System.out.printf("%n 두 점 사이의 거리는" + distance + "입니다.");
+    }
 }
