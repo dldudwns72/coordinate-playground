@@ -11,11 +11,8 @@ public class main {
 
         DistanceCalculator distanceCalculator = new DistanceCalculator(coordinates);
 
-        double lineDistance = distanceCalculator.LineCalculator();
-
         ResultView.drawingCoordinateGraph();
-
-        ResultView.printDistance(lineDistance);
+        ResultView.printDistance(distanceCalculator.LineCalculator());
 
     }
 }

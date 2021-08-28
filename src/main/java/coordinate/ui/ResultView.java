@@ -43,6 +43,7 @@ public class ResultView {
     }
 
     public static void printDistance(double distance){
-        System.out.printf("%n 두 점 사이의 거리는" + distance + "입니다.");
+        double resultDistance = Math.round(distance*100) /100.0;
+        System.out.printf("%n 두 점 사이의 거리는 " + resultDistance + "입니다.");
     }
 }
