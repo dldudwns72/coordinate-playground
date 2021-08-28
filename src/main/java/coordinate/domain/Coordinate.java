@@ -22,24 +22,18 @@ public class Coordinate {
         x = new CoordinateX(xCoordinate);
         y = new CoordinateY(yCoordinate);
 
-        this.coordinate = coordinate;
-
-    }
-
-    private void valid(String coordinate) {
-
-        if (!coordinate.contains("(") || !coordinate.contains(")") || !coordinate.contains(",")) {
-            throw new coordinateException("`(`, `)`, `,` 특수문자를 제외한 특수문자는 사용할 수 없습니다.");
-        }
-    }
-
-    public List<Integer> generate() {
         coordinateArray = new ArrayList<>();
 
         coordinateArray.add(x.getX());
         coordinateArray.add(y.getY());
 
-        return coordinateArray;
+        this.coordinate = coordinate;
+    }
+
+    private void valid(String coordinate) {
+        if (!coordinate.contains("(") || !coordinate.contains(")") || !coordinate.contains(",")) {
+            throw new coordinateException("`(`, `)`, `,` 특수문자를 제외한 특수문자는 사용할 수 없습니다.");
+        }
     }
 
     public String getCoordinate() {

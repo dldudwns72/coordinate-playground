@@ -1,11 +1,18 @@
 package coordinate.ui;
 
+import coordinate.domain.Coordinate;
+import coordinate.domain.Coordinates;
+
 public class ResultView {
     private static final int MAX_COORDINATE = 24;
     private static final int MIN_COORDINATE = 0;
 
-    public static void drawingCoordinateGraph() {
+    public static void drawingCoordinateGraph(Coordinates coordinates) {
         System.out.println("실행결과");
+
+        Coordinate firstCoordinate = coordinates.getCoordinates().get(0);
+        Coordinate secondCoordinate =  coordinates.getCoordinates().get(1);
+
 
         for (int i = MAX_COORDINATE; i > MIN_COORDINATE; i--) {
             printYCoordinateMultiplesOfTwo(i);

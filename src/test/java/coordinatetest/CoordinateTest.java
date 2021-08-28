@@ -37,10 +37,8 @@ public class CoordinateTest {
         String coordinateInput = "(10,10)";
         Coordinate coordinate = new Coordinate(coordinateInput);
 
-        List<Integer> coordinateValue = coordinate.generate();
-
-        assertThat(coordinateValue.get(0)).isEqualTo(10);
-        assertThat(coordinateValue.get(1)).isEqualTo(10);
+        assertThat(coordinate.getCoordinateArray().get(0)).isEqualTo(10);
+        assertThat(coordinate.getCoordinateArray().get(1)).isEqualTo(10);
 
     }
 

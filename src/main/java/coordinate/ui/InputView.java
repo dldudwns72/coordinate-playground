@@ -27,7 +27,6 @@ public class InputView {
         String firstCoordinate = inputCoordinate.substring(0, inputCoordinate.indexOf("-"));
         String secondCoordinate = inputCoordinate.substring(inputCoordinate.indexOf("-") + 1);
 
-
         coordinates.add(new Coordinate(firstCoordinate));
         coordinates.add(new Coordinate(secondCoordinate));
 

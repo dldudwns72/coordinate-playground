@@ -10,11 +10,11 @@ public class CoordinateY {
     private int y;
 
     public CoordinateY(int y){
-        valid();
+        valid(y);
         this.y = y;
     }
 
-    private void valid(){
+    private void valid(int y){
         if (y < MIN_COORDINATE || y > MAX_COORDINATE) {
             throw new coordinateException("Y 좌표의 범위는 0초과 24미만이여야 한다.");
         }
