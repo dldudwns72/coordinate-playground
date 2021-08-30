@@ -7,11 +7,12 @@ import coordinate.ui.ResultView;
 
 public class main {
     public static void main(String[] args){
+
         Coordinates coordinates = InputView.generateCoordinate();
         DistanceCalculator distanceCalculator = new DistanceCalculator(coordinates);
 
         ResultView.drawingCoordinateGraph(coordinates);
-        ResultView.printDistance(distanceCalculator.LineCalculator());
+        ResultView.printCalculatorResult(coordinates,distanceCalculator.LineCalculator());
 
     }
 }

@@ -8,41 +8,41 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 
-public class DistanceCalculatorTest {
+public class AreaCalculatorTest {
 
     private List<Coordinate> coordinateList;
 
     private Coordinate firstCoordinate;
     private Coordinate secondCoordinate;
+    private Coordinate thirdCoordinate;
+    private Coordinate fourCoordinate;
 
     private Coordinates coordinates;
 
-
     @BeforeEach
     public void setUp() {
-        coordinateList = new ArrayList<>();
 
-        firstCoordinate = new Coordinate("(10,10)");
-        secondCoordinate = new Coordinate("(14,15)");
+        firstCoordinate = new Coordinate("(1,1)");
+        secondCoordinate = new Coordinate("(4,1)");
+        thirdCoordinate = new Coordinate("(1,1)");
+        fourCoordinate = new Coordinate("(4,4)");
 
-        coordinateList.add(firstCoordinate);
-        coordinateList.add(secondCoordinate);
+        coordinateList = Arrays.asList(firstCoordinate,firstCoordinate,firstCoordinate,firstCoordinate);
 
         coordinates = new Coordinates(coordinateList);
     }
 
+
     @Test
-    @DisplayName("line 거리 측정")
-    public void lineDistance(){
-        DistanceCalculator distanceCalculator = new DistanceCalculator(coordinates);
-        double lineDistance = distanceCalculator.LineCalculator();
-        assertThat(lineDistance).isEqualTo(6.40,offset(0.2));
+    @DisplayName("사각형 거리 측정")
+    public void SquareArea(){
+
 
     }
-
 }

@@ -8,6 +8,7 @@ import java.util.List;
 public class Coordinate {
 
     private String coordinate;
+
     List<Integer> coordinateArray;
 
     private CoordinateX x;

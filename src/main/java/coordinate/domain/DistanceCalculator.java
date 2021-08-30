@@ -24,4 +24,6 @@ public class DistanceCalculator {
 
         return Math.sqrt(xd+yd);
     }
+
+
 }
