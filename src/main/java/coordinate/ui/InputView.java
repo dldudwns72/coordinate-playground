@@ -4,6 +4,7 @@ import coordinate.domain.Coordinate;
 import coordinate.domain.Coordinates;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,21 +17,21 @@ public class InputView {
 
         String inputCoordinate = scanner.next();
 
-        List<Coordinate> coordinates = splitCoordinate(inputCoordinate);
-
-        return new Coordinates(coordinates);
+        return splitCoordinate(inputCoordinate);
     }
 
-    private static List<Coordinate> splitCoordinate(String inputCoordinate) {
+    private static Coordinates splitCoordinate(String inputCoordinate) {
         List<Coordinate> coordinates = new ArrayList<>();
 
-        String firstCoordinate = inputCoordinate.substring(0, inputCoordinate.indexOf("-"));
-        String secondCoordinate = inputCoordinate.substring(inputCoordinate.indexOf("-") + 1);
+        List<String> splitCoordinates = Arrays.asList(inputCoordinate.split("-"));
 
-        coordinates.add(new Coordinate(firstCoordinate));
-        coordinates.add(new Coordinate(secondCoordinate));
+        for(String coordinate : splitCoordinates){
+            coordinates.add(new Coordinate(coordinate));
+        }
 
-        return coordinates;
+        Coordinates coordinatesResult = new Coordinates(coordinates);
+
+        return coordinatesResult;
     }
 
 }
