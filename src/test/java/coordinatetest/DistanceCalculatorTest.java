@@ -39,8 +39,8 @@ public class DistanceCalculatorTest {
     @Test
     @DisplayName("line 거리 측정")
     public void lineDistance(){
-        DistanceCalculator distanceCalculator = new DistanceCalculator(coordinates);
-        double lineDistance = distanceCalculator.LineCalculator();
+        DistanceCalculator distanceCalculator = new DistanceCalculator();
+        double lineDistance = distanceCalculator.lineCalculator(coordinates);
         assertThat(lineDistance).isEqualTo(6.40,offset(0.2));
 
     }

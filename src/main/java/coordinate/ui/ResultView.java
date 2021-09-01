@@ -48,21 +48,21 @@ public class ResultView {
 
     public static void printCalculatorResult(Coordinates coordinates) {
 
-        DistanceCalculator distanceCalculator = new DistanceCalculator(coordinates);
+        DistanceCalculator distanceCalculator = new DistanceCalculator();
 
         if (coordinates.getCoordinates().size() == 2) {
-            double distance =  distanceCalculator.LineCalculator();
+            double distance =  distanceCalculator.lineCalculator(coordinates);
             double distanceCalculate = Math.round(distance * 100) / 100.0;
             System.out.printf("%n 두 점 사이의 거리는 " + distanceCalculate + "입니다.");
         }
 
         if (coordinates.getCoordinates().size() == 4) {
-            int resultSquareArea = distanceCalculator.squareCalculator();
+            int resultSquareArea = distanceCalculator.squareCalculator(coordinates);
             System.out.printf("%n 사각형의 넓이는 " + resultSquareArea + "입니다.");
         }
 
         if (coordinates.getCoordinates().size() == 3) {
-            double resultTriangleArea = 0;
+            double resultTriangleArea = distanceCalculator.triangleCalculator(coordinates);
             System.out.printf("%n 삼각형의 넓이는 " + resultTriangleArea + "입니다.");
         }
 

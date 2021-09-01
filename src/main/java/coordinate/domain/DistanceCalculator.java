@@ -1,14 +1,11 @@
 package coordinate.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DistanceCalculator {
 
-    private Coordinates coordinates;
-
-    public DistanceCalculator(Coordinates coordinates) {
-        this.coordinates = coordinates;
-    }
-
-    public double LineCalculator() {
+    public double lineCalculator(Coordinates coordinates) {
         Coordinate firstCoordinate = coordinates.getCoordinates().get(0);
         Coordinate secondCoordinate = coordinates.getCoordinates().get(1);
 
@@ -25,23 +22,17 @@ public class DistanceCalculator {
         return Math.sqrt(xd + yd);
     }
 
-    public int squareCalculator() {
+    public int squareCalculator(Coordinates coordinates) {
         Coordinate firstCoordinate = coordinates.getCoordinates().get(0);
         Coordinate secondCoordinate = coordinates.getCoordinates().get(1);
         Coordinate thirdCoordinate = coordinates.getCoordinates().get(2);
-        Coordinate fourthCoordinate = coordinates.getCoordinates().get(3);
 
         int x1 = firstCoordinate.getCoordinateArray().get(0);
-        int y1 = firstCoordinate.getCoordinateArray().get(1);
-
-        int x2 = secondCoordinate.getCoordinateArray().get(0);
         int y2 = secondCoordinate.getCoordinateArray().get(1);
 
         int x3 = thirdCoordinate.getCoordinateArray().get(0);
         int y3 = thirdCoordinate.getCoordinateArray().get(1);
 
-        int x4 = fourthCoordinate.getCoordinateArray().get(0);
-        int y4 = fourthCoordinate.getCoordinateArray().get(1);
 
         int width = x3 - x1;
         int height = y3 - y2;
@@ -49,9 +40,32 @@ public class DistanceCalculator {
         return width * height;
     }
 
-    public double triangleCalculator() {
-        // Math.sqrt(s(s-a)(s-b)(s-c));
-        return 0;
+    public double triangleCalculator(Coordinates coordinates) {
+
+        Coordinate firstCoordinate = coordinates.getCoordinates().get(0);
+        Coordinate secondCoordinate = coordinates.getCoordinates().get(1);
+        Coordinate thirdCoordinate = coordinates.getCoordinates().get(2);
+
+        List<Coordinate> aPoint = new ArrayList<>();
+        aPoint.add(firstCoordinate);
+        aPoint.add(secondCoordinate);
+        double a = lineCalculator(new Coordinates(aPoint));
+
+        List<Coordinate> bPoint = new ArrayList<>();
+        bPoint.add(thirdCoordinate);
+        bPoint.add(firstCoordinate);
+        double b = lineCalculator(new Coordinates(bPoint));
+
+        List<Coordinate> cPoint = new ArrayList<>();
+        cPoint.add(secondCoordinate);
+        cPoint.add(thirdCoordinate);
+        double c = lineCalculator(new Coordinates(cPoint));
+
+        double s = (a + b + c) / 2;
+        double triangleArea = Math.round(Math.sqrt(s * (s - a) * (s - b) * (s - c)) * 100) / 100;
+
+
+        return triangleArea;
     }
 
 
