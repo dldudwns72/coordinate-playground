@@ -5,7 +5,7 @@ import coordinate.domain.DistanceCalculator;
 import coordinate.ui.InputView;
 import coordinate.ui.ResultView;
 
-public class main {
+public class Main {
     public static void main(String[] args){
 
         Coordinates coordinates = InputView.generateCoordinate();

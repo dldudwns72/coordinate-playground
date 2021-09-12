@@ -1,6 +1,6 @@
 package coordinate.domain;
 
-import coordinate.exception.coordinateException;
+import coordinate.exception.CoordinateException;
 
 public class CoordinateY {
 
@@ -14,9 +14,13 @@ public class CoordinateY {
         this.y = y;
     }
 
+    public CoordinateY(String coordinate){
+        this(Integer.parseInt(coordinate.substring(coordinate.indexOf(",") + 1, coordinate.indexOf(")"))));
+    }
+
     private void valid(int y){
         if (y < MIN_COORDINATE || y > MAX_COORDINATE) {
-            throw new coordinateException("Y 좌표의 범위는 0초과 24미만이여야 한다.");
+            throw new CoordinateException("Y 좌표의 범위는 0초과 24미만이여야 한다.");
         }
     }
 

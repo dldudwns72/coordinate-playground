@@ -1,11 +1,9 @@
 package coordinatetest;
 
-import coordinate.exception.coordinateException;
+import coordinate.exception.CoordinateException;
 import coordinate.domain.Coordinate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -18,7 +16,7 @@ public class CoordinateTest {
         assertThatThrownBy(() -> {
             String coordinateInput = "(10*10)";
             Coordinate coordinate = new Coordinate(coordinateInput);
-        }).isInstanceOf(coordinateException.class);
+        }).isInstanceOf(CoordinateException.class);
     }
 
     @Test
@@ -27,7 +25,7 @@ public class CoordinateTest {
         assertThatThrownBy(() -> {
             String coordinateInput = "(10,30)";
             Coordinate coordinate = new Coordinate(coordinateInput);
-        }).isInstanceOf(coordinateException.class);
+        }).isInstanceOf(CoordinateException.class);
     }
 
 
@@ -37,8 +35,8 @@ public class CoordinateTest {
         String coordinateInput = "(10,10)";
         Coordinate coordinate = new Coordinate(coordinateInput);
 
-        assertThat(coordinate.getCoordinateArray().get(0)).isEqualTo(10);
-        assertThat(coordinate.getCoordinateArray().get(1)).isEqualTo(10);
+        assertThat(coordinate.getX()).isEqualTo(10);
+        assertThat(coordinate.getY()).isEqualTo(10);
 
     }
 
