@@ -16,8 +16,6 @@ public class RentCompany extends RentCompanyFactory {
         return new RentCompany();
     }
 
-    private Car car;
-
     private List<String> calculatorResult = new ArrayList<>();
 
     public void addCar(Avante avante) {
@@ -32,7 +30,6 @@ public class RentCompany extends RentCompanyFactory {
         calculatorResult.add(carName + " : " + chargeQuantity + "리터");
     }
 
-
     public void addCar(Sonata sonata) {
         String carName = sonata.getName();
         int chargeQuantity = (int) sonata.getChargeQuantity();
@@ -44,4 +41,5 @@ public class RentCompany extends RentCompanyFactory {
         String result = String.join(",", calculatorResult);
         return result;
     }
+
 }
