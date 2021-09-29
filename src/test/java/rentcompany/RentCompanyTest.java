@@ -2,7 +2,12 @@ package rentcompany;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import rentcompany.car.Avante;
+import rentcompany.car.K5;
+import rentcompany.car.Sonata;
 import rentcompany.factorymethod.RentCompanyFactory;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Sonata 2대 연비 : 10km/리터
@@ -19,6 +24,27 @@ public class RentCompanyTest {
         RentCompanyFactory rentCompanyFactory = new RentCompany();
 
         RentCompany company = rentCompanyFactory.create();
+
+        company.addCar(new Sonata(150));
+        company.addCar(new K5(260));
+        company.addCar(new Sonata(120));
+        company.addCar(new Avante(300));
+        company.addCar(new K5(390));
+
+        String report = company.generateReport();
+
+        assertThat(report).isEqualTo("Sonata : 15리터,K5 : 20리터,Sonata : 12리터,Avante : 20리터,K5 : 30리터");
+
+//
+//        assertThat(report).isEqualTo(
+//                "Sonata : 15리터" + NEWLINE +
+//                        "K5 : 20리터" + NEWLINE +
+//                        "Sonata : 12리터" + NEWLINE +
+//                        "Avante : 20리터" + NEWLINE +
+//                        "K5 : 30리터" + NEWLINE
+//        );
+
+
 
     }
 }
